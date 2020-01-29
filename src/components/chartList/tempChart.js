@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import Reactotron from 'reactotron-react-js';
 import Chart from "chart.js";
 import * as moment from 'moment';
 import './tempChart.css';
@@ -24,7 +23,6 @@ class TempChart extends PureComponent {
 
     buildChart = () => {
         const myChartRef = this.chartRef.current.getContext("2d");
-        Reactotron.log("values", this.props.chartValues)
         
         const {height: graphHeight} = myChartRef.canvas;
         let gradientLine = myChartRef
@@ -81,7 +79,6 @@ class TempChart extends PureComponent {
     
     render() {
 
-        Reactotron.log('this.props Troops.js', this.props)
         return (
             <div className="graphContainer">
                 <canvas

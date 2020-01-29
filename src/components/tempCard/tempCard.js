@@ -1,5 +1,4 @@
 import React from 'react';
-import Reactotron from 'reactotron-react-js';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -30,7 +29,6 @@ const useStyles = makeStyles({
 export default function TempCard(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-  Reactotron.log('tempCards', props.dataProps)
   return (
     <Card className={classes.card}>
       <CardContent>

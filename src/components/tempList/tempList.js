@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Reactotron from 'reactotron-react-js';
 import * as moment from 'moment'
 
 import './tempList.css';
@@ -37,7 +36,6 @@ class TempList extends Component {
     }
 
     render(){
-        Reactotron.log('this.props tempList', this.props)
         const { weatherData } = this.props;
         return (
         <div>
