@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Reactotron from 'reactotron-react-js';
 import {
   BrowserRouter,
   Switch,
@@ -34,10 +33,8 @@ class App extends Component{
   }
 
   componentDidUpdate(prevState, snapshot){
-    Reactotron.log('State', this.state)
-    Reactotron.log('prevState', prevState)
+  
     // if(prevState !== this.state){
-    //   Reactotron.log("no changes")
     // } else {
     //   this.fetchTableData()
     // }
@@ -48,11 +45,8 @@ class App extends Component{
     const response = await axios.get('https://api.weather.gov/points/30.3322,-81.6557', {
       headers: {}
     })
-    Reactotron.log('response', response)
     const forecast = await axios.get(response.data.properties.forecast)
-    Reactotron.log('forecast', forecast)
     const forecastHourly = await axios.get(response.data.properties.forecastHourly)
-    Reactotron.log('forecastHourly', forecastHourly)
     let cardData = response.data.properties
     let labelValues = forecast.data.properties.periods.map((date) => moment(date.startTime).format('DD'));
     let dayLabelValues = forecast.data.properties.periods.map((date) => date.isDaytime ? moment(date.startTime).format('DD') : null);
@@ -93,16 +87,10 @@ class App extends Component{
       temperature: 88,
        speed: 0,
     }
-
-    Reactotron.log('post fired')
-    Reactotron.log('post data', data)
     let res = await axios.post('http://localhost:3001/api/weather', params);
-
-    Reactotron.log(`Status code: `, res);
 }
 
   render(){
-    Reactotron.log('this.state App.js', this.state)
     return (
       <div className="App">
         <header className="App-header">
